@@ -1,0 +1,52 @@
+{
+  "first_name": "Your",
+  "last_name": "Name",
+  "email": "you@example.com",
+  "phone": "+1 555 0100",
+  "location": "Berlin, Germany",
+  "linkedin_url": "https://www.linkedin.com/in/your-profile",
+  "github_url": "https://github.com/your-handle",
+  "portfolio_url": "https://your-site.example",
+  "resume_path": "C:\\Users\\you\\Documents\\resume.pdf",
+  "target_titles": [
+    "Data Analyst",
+    "Middle Data Analyst",
+    "Senior Data Analyst",
+    "Product Analyst",
+    "Middle Product Analyst",
+    "Product Affiliate Analyst",
+    "Senior Product Analyst",
+    "Affiliate Data Analyst",
+    "Middle Affiliate Data Analyst",
+    "Senior Affiliate Data Analyst",
+    "BI Analyst",
+    "Analytics Engineer",
+    "Middle Data Scientist",
+    "Mid Data Scientist"
+  ],
+  "target_locations": [
+    "Remote",
+    "Germany",
+    "Netherlands",
+    "United Kingdom",
+    "United States"
+  ],
+  "skills": [
+    "Python",
+    "SQL",
+    "pandas",
+    "statistics",
+    "A/B testing",
+    "Tableau",
+    "Power BI",
+    "machine learning"
+  ],
+  "avoid_keywords": [
+    "unpaid",
+    "commission only"
+  ],
+  "work_authorization": "No sponsorship required / specify your real status",
+  "salary_expectation": "",
+  "notice_period": "",
+  "summary": "Short truthful summary of your analytics/science background."
+}

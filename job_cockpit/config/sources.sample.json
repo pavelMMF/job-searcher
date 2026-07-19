@@ -1,0 +1,218 @@
+[
+  {
+    "name": "Remotive remote jobs",
+    "kind": "remotive_api",
+    "enabled": true,
+    "url": "https://remotive.com/api/remote-jobs",
+    "notes": "Public remote job API. Uses workflow search_queries."
+  },
+  {
+    "name": "Arbeitnow job board",
+    "kind": "arbeitnow_api",
+    "enabled": true,
+    "url": "https://www.arbeitnow.com/api/job-board-api",
+    "notes": "Public job API with remote and Europe-friendly roles."
+  },
+  {
+    "name": "Jobicy remote jobs",
+    "kind": "jobicy_api",
+    "enabled": true,
+    "url": "https://jobicy.com/api/v2/remote-jobs",
+    "notes": "Public remote jobs API. Good for Europe/EMEA and Data Science & Analytics."
+  },
+  {
+    "name": "Himalayas remote jobs",
+    "kind": "himalayas_api",
+    "enabled": true,
+    "url": "https://himalayas.app/jobs/api",
+    "notes": "Public remote jobs API. Filters locally by target role and geography."
+  },
+  {
+    "name": "RemoteOK",
+    "kind": "remoteok_api",
+    "enabled": false,
+    "url": "https://remoteok.com/api",
+    "notes": "Optional public API. Enable if you want another remote source."
+  },
+  {
+    "name": "We Work Remotely RSS",
+    "kind": "rss",
+    "enabled": false,
+    "url": "https://weworkremotely.com/remote-jobs.rss",
+    "notes": "Optional RSS source for remote roles."
+  },
+  {
+    "name": "Jobicy Data Science RSS",
+    "kind": "rss",
+    "enabled": true,
+    "url": "https://jobicy.com/feed/job_feed?job_categories=data-science&job_types=full-time",
+    "notes": "Jobicy RSS focused on Data Science & Analytics."
+  },
+  {
+    "name": "LinkedIn assisted search",
+    "kind": "linkedin_assisted",
+    "enabled": false,
+    "url": "https://www.linkedin.com/jobs/search/",
+    "notes": "Use automation/linkedin_collect.py. You log in locally; the server does not scrape LinkedIn in the background."
+  },
+  {
+    "name": "HiringCafe manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://hiring.cafe/",
+    "notes": "Large remote/international job search. Use manually or as browser-assisted target."
+  },
+  {
+    "name": "FlexJobs manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://www.flexjobs.com/",
+    "notes": "Remote-focused board, account/subscription based."
+  },
+  {
+    "name": "Working Nomads manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://www.workingnomads.com/jobs",
+    "notes": "Remote/digital-nomad roles."
+  },
+  {
+    "name": "NoDesk manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://nodesk.co/remote-jobs/",
+    "notes": "Remote-first job board."
+  },
+  {
+    "name": "Remote.co manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://remote.co/remote-jobs/data/",
+    "notes": "Remote job board. Enable if HTML access works reliably."
+  },
+  {
+    "name": "DailyRemote data jobs",
+    "kind": "public_html",
+    "enabled": true,
+    "url": "https://dailyremote.com/remote-data-jobs",
+    "notes": "Remote-focused board with data roles. Uses generic public HTML link discovery."
+  },
+  {
+    "name": "EU Remote Jobs data",
+    "kind": "public_html",
+    "enabled": true,
+    "url": "https://euremotejobs.com/remote-data-jobs",
+    "notes": "Europe-friendly remote roles. Uses generic public HTML link discovery."
+  },
+  {
+    "name": "Startup Jobs remote data",
+    "kind": "public_html",
+    "enabled": true,
+    "url": "https://startup.jobs/remote-data-jobs",
+    "notes": "Startup-focused remote data listings. Uses generic public HTML link discovery."
+  },
+  {
+    "name": "Built In remote data analytics",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://builtin.com/jobs/remote/data-analytics",
+    "notes": "Remote data and analytics jobs. Enable if HTML access works reliably."
+  },
+  {
+    "name": "JustRemote data jobs",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://justremote.co/remote-data-jobs",
+    "notes": "Remote job board; may require manual review depending on page rendering."
+  },
+  {
+    "name": "Remote Rocketship data jobs",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://www.remoterocketship.com/jobs/data-analyst",
+    "notes": "Remote/international job board. Enable if HTML access works reliably."
+  },
+  {
+    "name": "PowerToFly data jobs",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://powertofly.com/jobs/",
+    "notes": "International tech board; best used manually or with site search filters."
+  },
+  {
+    "name": "YC Work at a Startup",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://www.ycombinator.com/jobs",
+    "notes": "Startup jobs with remote filters available on-site; generic discovery may be limited."
+  },
+  {
+    "name": "Landing.Jobs remote data",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://landing.jobs/jobs?remote=true",
+    "notes": "Europe-friendly tech jobs. Use manually or enable for public HTML discovery."
+  },
+  {
+    "name": "Honeypot remote jobs",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://www.honeypot.io/jobs",
+    "notes": "Europe tech jobs; mostly account-based, useful as a manual/assisted source."
+  },
+  {
+    "name": "Wellfound manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://wellfound.com/jobs",
+    "notes": "Startup jobs, often needs login; use as manual/assisted target."
+  },
+  {
+    "name": "Otta manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://app.otta.com/",
+    "notes": "International tech jobs, account-based; use manually."
+  },
+  {
+    "name": "Arc.dev manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://arc.dev/remote-jobs",
+    "notes": "Remote tech jobs, often account-based."
+  },
+  {
+    "name": "Turing manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://www.turing.com/jobs",
+    "notes": "Global remote tech marketplace, account-based."
+  },
+  {
+    "name": "Contra manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://contra.com/jobs",
+    "notes": "Remote freelance/contract marketplace."
+  },
+  {
+    "name": "No Fluff Jobs manual",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://nofluffjobs.com/",
+    "notes": "Europe tech jobs; use manually or enable if HTML access works."
+  },
+  {
+    "name": "Example company careers",
+    "kind": "career_page",
+    "enabled": false,
+    "url": "https://example.com/careers",
+    "notes": "Enable only for public career pages that allow normal browsing."
+  },
+  {
+    "name": "Manual intake",
+    "kind": "manual",
+    "enabled": true,
+    "notes": "Paste job URLs and descriptions directly into the UI."
+  }
+]

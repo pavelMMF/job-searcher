@@ -1,0 +1,26 @@
+[
+  {
+    "id": "example_product_analytics",
+    "source": "Real project or role name",
+    "role_period": "Apr 2025 - Present",
+    "tags": ["product analytics", "retention", "cohorts", "a/b testing"],
+    "skills": ["SQL", "Python", "Tableau"],
+    "bullets": [
+      "Analyzed retention cohorts and product funnels for real-money gaming users; prepared dashboards for product and marketing decisions.",
+      "Designed A/B test analysis for promotions or product mechanics using SQL/Python and explained impact on retention or revenue metrics."
+    ],
+    "notes": "Only add facts you can explain in an interview. Keep private company names anonymized if needed."
+  },
+  {
+    "id": "example_data_science",
+    "source": "Real project or role name",
+    "role_period": "Apr 2025 - Present",
+    "tags": ["machine learning", "churn", "llm", "rag"],
+    "skills": ["Python", "FAISS", "embeddings", "FastAPI"],
+    "bullets": [
+      "Built a prototype RAG workflow for internal analytics context retrieval using embeddings and vector search.",
+      "Prepared churn or risk-monitoring prototypes that connected behavioral events with explainable analytical outputs."
+    ],
+    "notes": "Use this format for additional real projects that are not fully described in the base resume."
+  }
+]

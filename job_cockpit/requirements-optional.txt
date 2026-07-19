@@ -1,0 +1,5 @@
+playwright>=1.44
+openai>=1.84
+google-api-python-client>=2.130
+google-auth-oauthlib>=1.2
+beautifulsoup4>=4.12

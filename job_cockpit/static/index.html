@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Job Cockpit</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Job Cockpit</h1>
+        <p>Human-in-the-loop applications for data roles</p>
+      </div>
+      <div class="top-actions">
+        <a class="button secondary" href="/api/export/jobs.csv">Export CSV</a>
+        <a class="button secondary" href="/api/calendar/interviews.ics">Export ICS</a>
+        <button class="button primary" id="open-add-job">Add Job</button>
+      </div>
+    </header>
+
+    <div class="shell">
+      <nav class="sidebar" aria-label="Main sections">
+        <button class="nav-item active" data-view="dashboard">Dashboard</button>
+        <button class="nav-item" data-view="auto-applies">Auto Applies</button>
+        <button class="nav-item" data-view="profile">Profile</button>
+        <button class="nav-item" data-view="sources">Sources</button>
+        <button class="nav-item" data-view="calendar">Calendar</button>
+        <button class="nav-item" data-view="safety">Safety</button>
+        <div class="stat-grid">
+          <div>
+            <span id="stat-jobs">0</span>
+            <small>jobs</small>
+          </div>
+          <div>
+            <span id="stat-ready">0</span>
+            <small>ready</small>
+          </div>
+          <div>
+            <span id="stat-score">0</span>
+            <small>avg score</small>
+          </div>
+        </div>
+      </nav>
+
+      <main class="main">
+        <section class="view active" id="view-dashboard">
+          <div class="toolbar">
+            <div class="segmented" aria-label="Agent controls">
+              <button data-agent="wide_search">Wide Search</button>
+              <button data-agent="daily_review">Daily Review</button>
+              <button data-agent="score_all">Score</button>
+              <button data-agent="draft_ready">Draft</button>
+              <button data-agent="package_ready">Package</button>
+              <button data-agent="discover_sources">Scout</button>
+            </div>
+            <button class="button primary apply-next" id="apply-next">Apply Next</button>
+            <button class="button secondary auto-queue" id="auto-queue">Auto Queue</button>
+            <div class="queue-summary" id="apply-queue-summary">0 ready with URL</div>
+            <label class="filter">
+              <span>Status</span>
+              <select id="status-filter">
+                <option value="all">All</option>
+                <option value="new">Not applied</option>
+                <option value="scored">Scored</option>
+                <option value="ready_to_apply">Ready</option>
+                <option value="applied">Applied</option>
+                <option value="skipped">Skipped</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </label>
+            <div class="exclude-strip" aria-label="Hidden statuses">
+              <label class="exclude-toggle status-applied"><input type="checkbox" data-hide-status="applied" checked />Hide applied</label>
+              <label class="exclude-toggle status-skipped"><input type="checkbox" data-hide-status="skipped" checked />Hide skipped</label>
+              <label class="exclude-toggle status-rejected"><input type="checkbox" data-hide-status="rejected" checked />Hide rejected</label>
+            </div>
+          </div>
+
+          <div class="job-list" id="job-list"></div>
+          <section class="panel activity-panel">
+            <div class="section-title-row">
+              <h2>Latest Activity</h2>
+              <button class="button secondary" id="refresh-state">Refresh</button>
+            </div>
+            <div id="activity-list" class="activity-list"></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-auto-applies">
+          <div class="panel auto-apply-overview">
+            <div class="section-title-row">
+              <h2>Auto Applies</h2>
+              <div class="top-actions">
+                <button class="button secondary" id="auto-applies-refresh">Refresh</button>
+                <button class="button primary" id="auto-applies-queue">Auto Queue</button>
+              </div>
+            </div>
+            <div class="auto-apply-stats">
+              <div><strong id="auto-stat-submitted">0</strong><span>submitted</span></div>
+              <div><strong id="auto-stat-review">0</strong><span>need review</span></div>
+              <div><strong id="auto-stat-total">0</strong><span>tracked</span></div>
+            </div>
+            <label class="filter auto-apply-filter">
+              <span>Show</span>
+              <select id="auto-apply-filter">
+                <option value="all">All auto applies</option>
+                <option value="submitted">Submitted</option>
+                <option value="needs_review">Needs review</option>
+              </select>
+            </label>
+          </div>
+          <div class="auto-apply-list" id="auto-apply-list"></div>
+        </section>
+
+        <section class="view" id="view-profile">
+          <form class="panel form-grid" id="profile-form">
+            <div class="panel-heading">
+              <h2>Profile</h2>
+              <button class="button primary" type="submit">Save</button>
+            </div>
+            <label>First name<input name="first_name" autocomplete="given-name" /></label>
+            <label>Last name<input name="last_name" autocomplete="family-name" /></label>
+            <label>Email<input name="email" autocomplete="email" /></label>
+            <label>Phone<input name="phone" autocomplete="tel" /></label>
+            <label>Location<input name="location" /></label>
+            <label>LinkedIn URL<input name="linkedin_url" /></label>
+            <label>GitHub URL<input name="github_url" /></label>
+            <label>Portfolio URL<input name="portfolio_url" /></label>
+            <label>Resume path<input name="resume_path" /></label>
+            <label>Work authorization<input name="work_authorization" /></label>
+            <label>Salary expectation<input name="salary_expectation" /></label>
+            <label>Notice period<input name="notice_period" /></label>
+            <label class="wide">Target titles<textarea name="target_titles" rows="3"></textarea></label>
+            <label class="wide">Target locations<textarea name="target_locations" rows="3"></textarea></label>
+            <label class="wide">Skills<textarea name="skills" rows="4"></textarea></label>
+            <label class="wide">Avoid keywords<textarea name="avoid_keywords" rows="3"></textarea></label>
+            <label class="wide">Summary<textarea name="summary" rows="5"></textarea></label>
+          </form>
+        </section>
+
+        <section class="view" id="view-sources">
+          <div class="panel">
+            <div class="panel-heading">
+              <h2>Sources</h2>
+              <button class="button primary" id="save-sources">Save Sources</button>
+            </div>
+            <textarea id="sources-json" class="codebox" spellcheck="false"></textarea>
+          </div>
+          <form class="panel form-grid" id="workflow-form">
+            <div class="panel-heading wide">
+              <h2>Workflow</h2>
+              <button class="button primary" type="submit">Save</button>
+            </div>
+            <label>Min score to prepare<input name="min_score_to_prepare" type="number" min="0" max="100" /></label>
+            <label>Max new jobs per run<input name="max_new_jobs_per_run" type="number" min="1" max="200" /></label>
+            <label>Auto-submit max per run<input name="auto_submit_max_per_run" type="number" min="1" max="25" /></label>
+            <label>Submit mode<input name="submit_mode" /></label>
+            <label>CAPTCHA policy<input name="captcha_policy" /></label>
+            <label class="checkbox"><input name="auto_fill_allowed" type="checkbox" /> Auto-fill allowed</label>
+            <label class="checkbox"><input name="auto_generate_resume" type="checkbox" /> Auto-generate tailored resume</label>
+            <label class="checkbox"><input name="auto_generate_cover_letter" type="checkbox" /> Auto-generate cover letter</label>
+            <label class="checkbox"><input name="llm_generate_application_package" type="checkbox" /> OpenAI package generation</label>
+            <label>OpenAI model<input name="llm_model" /></label>
+            <label>OpenAI timeout seconds<input name="llm_timeout_seconds" type="number" min="5" max="180" /></label>
+            <label>LLM description chars<input name="llm_max_description_chars" type="number" min="1000" max="20000" /></label>
+            <label class="checkbox"><input name="llm_autofill_screening_questions" type="checkbox" /> LLM screening autofill</label>
+            <label>LLM autofill confidence<input name="llm_autofill_min_confidence" type="number" min="0" max="1" step="0.05" /></label>
+            <label>LLM autofill max fields<input name="llm_autofill_max_fields" type="number" min="1" max="25" /></label>
+            <label class="checkbox"><input name="auto_fill_eeo_from_answers" type="checkbox" /> EEO from answer bank</label>
+            <label class="checkbox"><input name="auto_fill_legal_consent_from_answers" type="checkbox" /> Application consent from answer bank</label>
+            <label class="checkbox"><input name="auto_generate_for_auto_apply_candidates" type="checkbox" /> Generate for auto-apply candidates</label>
+            <label>Always generate at score<input name="always_generate_score" type="number" min="0" max="100" /></label>
+            <label class="checkbox"><input name="auto_package_ready_jobs" type="checkbox" /> Package ready jobs</label>
+            <label class="checkbox"><input name="remote_only" type="checkbox" /> Remote only</label>
+            <label class="checkbox"><input name="exclude_entry_level" type="checkbox" /> Exclude junior/entry level</label>
+            <label class="checkbox"><input name="demote_ready_below_threshold" type="checkbox" /> Demote weak ready jobs</label>
+            <label class="checkbox"><input name="auto_submit_allowed" type="checkbox" /> Safe auto-submit</label>
+            <label class="checkbox"><input name="auto_submit_safe_only" type="checkbox" /> Safe forms only</label>
+            <label class="wide">Search queries<textarea name="search_queries" rows="4"></textarea></label>
+            <label class="wide">Search locations<textarea name="search_locations" rows="3"></textarea></label>
+            <label class="wide">Target seniority<textarea name="target_seniority" rows="3"></textarea></label>
+            <label class="wide">Focus role families<textarea name="focus_role_families" rows="3"></textarea></label>
+          </form>
+        </section>
+
+        <section class="view" id="view-calendar">
+          <form class="panel form-grid" id="meeting-form">
+            <div class="panel-heading wide">
+              <h2>Add Interview</h2>
+              <button class="button primary" type="submit">Add</button>
+            </div>
+            <label>Title<input name="title" value="Interview" /></label>
+            <label>Company<input name="company" /></label>
+            <label>Starts at<input name="starts_at" type="datetime-local" /></label>
+            <label>Ends at<input name="ends_at" type="datetime-local" /></label>
+            <label class="wide">Location or link<input name="location" /></label>
+            <label class="wide">Notes<textarea name="notes" rows="4"></textarea></label>
+          </form>
+          <div class="panel">
+            <h2>Meetings</h2>
+            <div id="meeting-list" class="stack-list"></div>
+          </div>
+        </section>
+
+        <section class="view" id="view-safety">
+          <div class="panel safety-grid">
+            <div>
+              <h2>Automation Boundaries</h2>
+              <p>The cockpit can prepare, fill, and safe-submit fully recognized applications. It pauses for CAPTCHA, passwords, consent, demographic, and unusual required fields.</p>
+            </div>
+            <div class="rule ok">Allowed: parse jobs, score fit, generate drafts, fill known fields.</div>
+            <div class="rule wait">Manual: CAPTCHA, account security checks, consent, demographics, unknown fields.</div>
+            <div class="rule stop">Blocked: CAPTCHA bypass, credential extraction, platform rule evasion.</div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="detail" id="detail-pane">
+        <div class="empty-detail">
+          <h2>Select a job</h2>
+          <p>Open a candidate to review score, draft text, and the form filler.</p>
+        </div>
+      </aside>
+    </div>
+
+    <dialog id="add-job-dialog">
+      <form method="dialog" class="dialog-form" id="add-job-form">
+        <div class="panel-heading">
+          <h2>Add Job</h2>
+          <button class="icon-button" value="cancel" aria-label="Close">x</button>
+        </div>
+        <label>Title<input name="title" /></label>
+        <label>Company<input name="company" /></label>
+        <label>URL<input name="url" /></label>
+        <label>Location<input name="location" /></label>
+        <label class="wide">Description<textarea name="raw_text" rows="12"></textarea></label>
+        <menu>
+          <button class="button secondary" value="cancel">Cancel</button>
+          <button class="button primary" value="default" type="submit">Save Job</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

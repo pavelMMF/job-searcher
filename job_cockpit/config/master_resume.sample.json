@@ -1,0 +1,69 @@
+{
+  "name": "Your Name",
+  "standard_resume_path": "C:\\path\\to\\your_reference_cv.pdf",
+  "base_headline": "Senior Product Analyst",
+  "contacts": {
+    "phone": "+00 000 000 000",
+    "email": "your.email@example.com",
+    "preferred_contact": "Telegram: @your_handle",
+    "location": "City / Remote",
+    "citizenship": "Country",
+    "work_authorization": "Country",
+    "work_format": "remote",
+    "employment_type": "full-time"
+  },
+  "summary": "One or two sentences describing your seniority, domains and core strengths. Keep it truthful and specific; the LLM uses this as source facts and will not invent beyond it.",
+  "headline_variants": {
+    "data_analyst": "Data Analyst",
+    "senior_data_analyst": "Senior Data Analyst",
+    "product_analyst": "Senior Product Analyst",
+    "analytics_engineer": "Analytics Engineer",
+    "data_scientist": "Data Scientist",
+    "default": "Senior Product Analyst"
+  },
+  "skills": {
+    "analytics": ["Retention Analysis", "A/B Testing", "Data Visualization"],
+    "tools": ["SQL", "Python", "Tableau", "Power BI"],
+    "engineering": ["ETL", "API integrations", "Docker"],
+    "data_science": ["churn prediction", "LLM APIs", "RAG"],
+    "languages": ["Language - native", "English - B2"]
+  },
+  "experience": [
+    {
+      "company": "Company / Industry",
+      "title": "Data Analyst",
+      "period": "Mon YYYY - Present",
+      "duration": "X years",
+      "context": "",
+      "bullets": [
+        "A real, defensible accomplishment with concrete scope and, where available, a real metric.",
+        "Another real responsibility phrased with concrete nouns from your actual work."
+      ]
+    }
+  ],
+  "experience_bank": [
+    {
+      "id": "example_theme",
+      "source": "Short description of where this experience comes from",
+      "role_period": "Mon YYYY - Present",
+      "tags": ["theme", "keywords", "for", "matching"],
+      "skills": ["SQL", "Python", "Tableau"],
+      "bullets": [
+        "Extra real bullets the generator can pull from when a vacancy matches these tags.",
+        "Keep every bullet truthful; the bank exists to surface more of your real experience per vacancy, not to invent it."
+      ],
+      "notes": "When to use this bank entry."
+    }
+  ],
+  "education": [
+    {
+      "period": "YYYY",
+      "school": "University, City",
+      "degree": "Field - Degree"
+    }
+  ],
+  "training": [
+    "YYYY Course provider - Course name"
+  ],
+  "about": "A short, human paragraph about why you do this work."
+}
