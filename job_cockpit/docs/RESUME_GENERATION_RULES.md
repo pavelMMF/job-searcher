@@ -107,7 +107,7 @@ Tailoring may not:
 
 - invent a company-specific project;
 - claim experience with tools absent from the master resume;
-- list a vacancy skill as Pavel's skill unless it is present in the master resume, reference resume, or explicit answer bank;
+- list a vacancy skill as the candidate's skill unless it is present in the master resume, reference resume, or explicit answer bank;
 - claim relocation/work authorization that is not in profile;
 - change dates or employers;
 - change real experience role titles inside the `Experience` section;

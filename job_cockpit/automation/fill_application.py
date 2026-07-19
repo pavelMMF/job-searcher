@@ -98,7 +98,7 @@ SENSITIVE_FACTUAL_LABEL_RE = re.compile(
     r"\b(salary|compensation|pay|notice period|start date|available|availability|relocat|authorized|eligible.*work|right.*work|work authorization|visa|sponsorship)\b",
     re.IGNORECASE,
 )
-LLM_SCREENING_SYSTEM_PROMPT = """You answer safe job application screening fields for Pavel Mishelutau.
+LLM_SCREENING_SYSTEM_PROMPT = """You answer safe job application screening fields for the candidate described in the provided profile facts.
 
 Return JSON only:
 {"answers":[{"field_id":"...","answer":"...","category":"safe_experience","confidence":0.0,"source_facts":["..."]}]}

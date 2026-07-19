@@ -219,7 +219,7 @@ def tailored_experience(
         remaining -= take
 
     # Reserve early space for additional real experience so it can surface when
-    # the base CV is shorter than Pavel's actual project history.
+    # the base CV is shorter than the candidate's actual project history.
     bank_bullets = matching_experience_bank_bullets(master, keywords, limit=8)
     for _, bullet in bank_bullets:
         if remaining <= 0:
@@ -332,7 +332,7 @@ def generate_resume_from_payload(
     job = store.get_job(job_id)
     validate_resume_payload(payload)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    filename = build_filename(job)
+    filename = build_filename(job, payload)
     output_path = OUTPUT_DIR / filename
     write_resume_pdf(payload, output_path)
     relative = output_path.relative_to(PROJECT_ROOT).as_posix()
@@ -356,13 +356,16 @@ def generate_resume_from_payload(
     }
 
 
-def build_filename(job: dict[str, Any]) -> str:
+def build_filename(job: dict[str, Any], payload: dict[str, Any] | None = None) -> str:
     title = slug(job.get("title") or "data-role")
     raw_company = str(job.get("company") or "").strip()
     if raw_company.lower() in {"name", "company", "unknown"}:
         raw_company = ""
     company = slug(raw_company or "company")
-    return f"pavel_mishelutau_{company}_{title}_tailored.pdf"[:150]
+    # Candidate name comes from the local (git-ignored) master_resume.json, not the code.
+    candidate = slug(str((payload or {}).get("name") or "").strip()) if payload else ""
+    candidate = candidate or "candidate"
+    return f"{candidate}_{company}_{title}_tailored.pdf"[:150]
 
 
 def slug(value: str) -> str:

@@ -91,7 +91,7 @@ The generator must not invent:
 - projects not present in the master resume;
 - relocation/visa/sponsorship facts.
 
-If an important vacancy requirement is absent from the resume facts, the generator must not add it to `skills`, `highlights`, or experience bullets as if Pavel has direct experience. It may only:
+If an important vacancy requirement is absent from the resume facts, the generator must not add it to `skills`, `highlights`, or experience bullets as if the candidate has direct experience. It may only:
 
 - emphasize adjacent real experience;
 - mention a transferable pattern in the cover letter;

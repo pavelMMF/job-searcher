@@ -194,7 +194,7 @@ def build_generation_context(
     }
 
 
-SYSTEM_PROMPT = """You generate truthful, ATS-readable job application material for Pavel Mishelutau.
+SYSTEM_PROMPT = """You generate truthful, ATS-readable job application material for the candidate described in master_resume.
 
 Rules:
 - Return JSON only.

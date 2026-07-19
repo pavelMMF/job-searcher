@@ -21,6 +21,8 @@ Then:
 
 Your personal files (`master_resume.json`, `openai.env`, generated `output/`, working notes) are all listed in `.gitignore` and stay local.
 
+**Candidate name is not hard-coded.** The published code carries no personal name — the candidate name used in prompts, generated resumes, and output filenames is read at runtime from the `name` field in your local (git-ignored) `master_resume.json`. Fill it with your own name; nothing in the repository needs to be edited.
+
 ## Run
 
 ```powershell

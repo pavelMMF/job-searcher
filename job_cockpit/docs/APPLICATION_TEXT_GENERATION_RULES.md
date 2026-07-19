@@ -31,7 +31,7 @@ Do not try to "trick" a detector. The goal is to avoid weak mass-generated writi
 Generated text should:
 
 - vary sentence structure naturally, without sounding theatrical;
-- use concrete nouns from Pavel's real experience: SQL, Python, Tableau, retention, cohorts, LTV, GGR, iGaming, dashboards, churn, ML;
+- use concrete nouns from the candidate's real experience (e.g. SQL, Python, Tableau, retention, cohorts, LTV, GGR, dashboards, churn, ML);
 - prefer short factual bullets over polished abstractions;
 - include only claims that can be explained in an interview;
 - avoid repeating the same cover-letter template shape across jobs;
